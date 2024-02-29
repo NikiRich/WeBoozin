@@ -1,9 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using WeBoozin.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
+
+var connectionString = app.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 app.MapGet("/", page =>
 {
