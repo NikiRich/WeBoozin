@@ -11,8 +11,8 @@ using WeBoozin.Data;
 namespace WeBoozin.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240229215821_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240303221223_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,6 +54,10 @@ namespace WeBoozin.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("CategoryId"));
 
+                    b.Property<string>("CategoryImage")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -61,6 +65,62 @@ namespace WeBoozin.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryImage = "~/Photos/Vodka.webp",
+                            CategoryName = "Vodka"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryImage = "~/Photos/Tequila.webp",
+                            CategoryName = "Tequila"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryImage = "~/Photos/Beer.webp",
+                            CategoryName = "Beer"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryImage = "~/Photos/Whiskey.webp",
+                            CategoryName = "Whiskey"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryImage = "~/Photos/Gin.webp",
+                            CategoryName = "Gin"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryImage = "~/Photos/Rum3.webp",
+                            CategoryName = "Rum"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryImage = "~/Photos/Liquor.webp",
+                            CategoryName = "Liquor"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryImage = "~/Photos/Wine2.webp",
+                            CategoryName = "Wine"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CategoryImage = "~/Photos/Champagne2.webp",
+                            CategoryName = "Champagne"
+                        });
                 });
 
             modelBuilder.Entity("WeBoozin.Models.Order", b =>

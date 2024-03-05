@@ -40,7 +40,7 @@ namespace WeBoozin.Migrations
 
                     b.HasKey("CartItemId");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("WeBoozin.Models.Category", b =>
@@ -51,17 +51,73 @@ namespace WeBoozin.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("CategoryId"));
 
-                    b.Property<string>("CategoryName")
+                    b.Property<string>("CategoryImage")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryImage = "~/Photos/Vodka.webp",
+                            CategoryName = "Vodka"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryImage = "~/Photos/Tequila.webp",
+                            CategoryName = "Tequila"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryImage = "~/Photos/Beer.webp",
+                            CategoryName = "Beer"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryImage = "~/Photos/Whiskey.webp",
+                            CategoryName = "Whiskey"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryImage = "~/Photos/Gin.webp",
+                            CategoryName = "Gin"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryImage = "~/Photos/Rum3.webp",
+                            CategoryName = "Rum"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryImage = "~/Photos/Liquor.webp",
+                            CategoryName = "Liquor"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryImage = "~/Photos/Wine2.webp",
+                            CategoryName = "Wine"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CategoryImage = "~/Photos/Champagne2.webp",
+                            CategoryName = "Champagne"
+                        });
                 });
 
             modelBuilder.Entity("WeBoozin.Models.Order", b =>
@@ -163,7 +219,7 @@ namespace WeBoozin.Migrations
 
                     b.HasKey("TrackerId");
 
-                    b.ToTable("Trackers");
+                    b.ToTable("Tracker");
                 });
 
             modelBuilder.Entity("WeBoozin.Models.User", b =>

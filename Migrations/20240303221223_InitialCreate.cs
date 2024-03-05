@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace WeBoozin.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,6 +39,8 @@ namespace WeBoozin.Migrations
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CategoryName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CategoryImage = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -146,6 +150,22 @@ namespace WeBoozin.Migrations
                     table.PrimaryKey("PK_Users", x => x.UserId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryImage", "CategoryName" },
+                values: new object[,]
+                {
+                    { 1, "~/Photos/Vodka.webp", "Vodka" },
+                    { 2, "~/Photos/Tequila.webp", "Tequila" },
+                    { 3, "~/Photos/Beer.webp", "Beer" },
+                    { 4, "~/Photos/Whiskey.webp", "Whiskey" },
+                    { 5, "~/Photos/Gin.webp", "Gin" },
+                    { 6, "~/Photos/Rum3.webp", "Rum" },
+                    { 7, "~/Photos/Liquor.webp", "Liquor" },
+                    { 8, "~/Photos/Wine2.webp", "Wine" },
+                    { 9, "~/Photos/Champagne2.webp", "Champagne" }
+                });
         }
 
         /// <inheritdoc />
