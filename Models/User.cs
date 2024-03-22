@@ -10,11 +10,14 @@ namespace WeBoozin.Models
         public string Email { get; set; }
         public string Telephone { get; set; }
         public string Address { get; set; }
-
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Role { get; set; }    
         public int Age { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual Cart Cart { get; set; }
+        public virtual ICollection<Tracker> Tracker { get; set; }
 
     }
 }
