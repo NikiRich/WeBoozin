@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeBoozin.Data;
 
@@ -11,9 +12,11 @@ using WeBoozin.Data;
 namespace WeBoozin.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240321160828_CartItems")]
+    partial class CartItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,10 +33,15 @@ namespace WeBoozin.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("CartId"));
 
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("CartId");
+
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserId")
                         .IsUnique();
@@ -307,6 +315,10 @@ namespace WeBoozin.Migrations
 
             modelBuilder.Entity("WeBoozin.Models.Cart", b =>
                 {
+                    b.HasOne("WeBoozin.Models.Product", null)
+                        .WithMany("Cart")
+                        .HasForeignKey("ProductId");
+
                     b.HasOne("WeBoozin.Models.User", "User")
                         .WithOne("Cart")
                         .HasForeignKey("WeBoozin.Models.Cart", "UserId")
@@ -325,7 +337,7 @@ namespace WeBoozin.Migrations
                         .IsRequired();
 
                     b.HasOne("WeBoozin.Models.Product", "Product")
-                        .WithMany("CartItems")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -348,7 +360,7 @@ namespace WeBoozin.Migrations
 
             modelBuilder.Entity("WeBoozin.Models.OrderDetails", b =>
                 {
-                    b.HasOne("WeBoozin.Models.Order", "Orders")
+                    b.HasOne("WeBoozin.Models.Order", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -360,7 +372,7 @@ namespace WeBoozin.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Orders");
+                    b.Navigation("Order");
 
                     b.Navigation("Product");
                 });
@@ -378,10 +390,10 @@ namespace WeBoozin.Migrations
 
             modelBuilder.Entity("WeBoozin.Models.Tracker", b =>
                 {
-                    b.HasOne("WeBoozin.Models.Product", "Product")
+                    b.HasOne("WeBoozin.Models.Product", "Products")
                         .WithMany("Tracker")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WeBoozin.Models.User", "User")
@@ -390,7 +402,7 @@ namespace WeBoozin.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("Products");
 
                     b.Navigation("User");
                 });
@@ -412,7 +424,7 @@ namespace WeBoozin.Migrations
 
             modelBuilder.Entity("WeBoozin.Models.Product", b =>
                 {
-                    b.Navigation("CartItems");
+                    b.Navigation("Cart");
 
                     b.Navigation("OrderDetails");
 
