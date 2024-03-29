@@ -13,11 +13,37 @@
 <body>
     <header>
         <nav class="navbar bg-primary">
-            <ul>
-                <li>
-                    <a asp-area="" asp-page="/Categories">Categories</a>
-                    <a asp-area="" asp-page="/AboutUs">About Us</a>
-                </li>
+            <ul class="nav">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a asp-area="" asp-page="/Categories">Categories</a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <a asp-area="" asp-page="/AboutUs">About Us</a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <form method="post" action="/Logout" id="logoutForm" style="display:none;">
+                            @Html.AntiForgeryToken()
+                        </form>
+                        <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();" class="nav-link text-black">Logout</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item ms-5">
+                        <a asp-area="" asp-page="/Categories">Categories</a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <a asp-area="" asp-page="/AboutUs">About Us</a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <a asp-area="" asp-page="/Register">Register</a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <a asp-area="" asp-page="/Login">Login</a>
+                    </li>
+                }
             </ul>
         </nav>
     </header>
@@ -26,7 +52,7 @@
             @RenderBody()
         </main>
     </div>
-    
+
     <script src="~/js/site.js" asp-append-version="true"></script>
 
 
