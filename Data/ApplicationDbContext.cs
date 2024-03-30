@@ -34,6 +34,98 @@ namespace WeBoozin.Data
                 new Category { CategoryId = 8, CategoryName = "Wine", CategoryImage = "/Photos/Wine2.webp" },
                 new Category { CategoryId = 9, CategoryName = "Champagne", CategoryImage = "/Photos/Champagne2.webp" }
             );
+            modelBuilder.Entity<Product>().HasData(
+                new Product
+                {
+                    ProductId = 1,
+                    ProductName = "Purity of Soul",
+                    Description = "Feel the purity of your soul through this wonder drink",
+                    Image = "/Photos/Vodka1.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 2,
+                    ProductName = "Fire in the Heart",
+                    Description = "Feel the fire in your heart with this vodka designed to lit your soul.",
+                    Image = "/Photos/Vodka2.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 3,
+                    ProductName = "Lightness of Soul",
+                    Description = "Feel the lightness in your soul with every sip of this vodka.",
+                    Image = "/Photos/Vodka3.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 4,
+                    ProductName = "Freedom of Mind",
+                    Description = "Feel the freedom of your mind through after the first sip of this vodka.",
+                    Image = "/Photos/Vodka4.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 5,
+                    ProductName= "Victorious",
+                    Description = "Feel the victory in your veins with this vodka.",
+                    Image = "/Photos/Vodka5.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 6,
+                    ProductName = "Russian Power",
+                    Description = "Feel the strength in your veins with this vodka.",
+                    Image = "/Photos/Vodka6.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 7,
+                    ProductName = "Russian Glory",
+                    Description = "Feel the glory like a Russian with this vodka.",
+                    Image = "/Photos/Vodka7.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 8,
+                    ProductName = "Alpha Male",
+                    Description = "Become an alpha of your pac after the first sip of this vodka.",
+                    Image = "/Photos/Vodka8.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 9,
+                    ProductName = "World ELite",
+                    Description = "Become an elite with this vodka.",
+                    Image = "/Photos/Vodka9.webp",
+                    QuantityInMl = 750,
+                    QuantityInStock = 50,
+                    CategoryId = 1
+                }
+               );
 
             // User to Orders
             modelBuilder.Entity<User>()
@@ -65,14 +157,14 @@ namespace WeBoozin.Data
 
             // Product to OrderDetails
             modelBuilder.Entity<Product>()
-                .HasMany(p => p.OrderDetails) 
+                .HasMany(p => p.OrderDetails)
                 .WithOne(od => od.Product)
                 .HasForeignKey(od => od.ProductId)
                 .OnDelete(DeleteBehavior.Cascade); // OrderDetails are deleted if Product is deleted
 
             // Product to Trackers
             modelBuilder.Entity<Product>()
-                .HasMany(p => p.Tracker) 
+                .HasMany(p => p.Tracker)
                 .WithOne(t => t.Product)
                 .HasForeignKey(t => t.ProductId)
                 .OnDelete(DeleteBehavior.Restrict); // Prevent deletion of Product if the Product is being tracked
