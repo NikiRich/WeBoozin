@@ -29,6 +29,5 @@ namespace WeBoozin.Pages.AlcInventory
                 AlcoholContent = Math.Round(p.AlcoholContent, 2),
             }).ToListAsync();
         }
-
     }
 }
