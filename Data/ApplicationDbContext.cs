@@ -39,7 +39,7 @@ namespace WeBoozin.Data
                 {
                     ProductId = 1,
                     ProductName = "Purity of Soul",
-                    Description = "Feel the purity of your soul through this wonder drink",
+                    Description = "Feel the purity of your soul through this wonder drink.",
                     Image = "/Photos/Vodka1.webp",
                     QuantityInMl = 750,
                     AlcoholContent = 40,
@@ -232,6 +232,105 @@ namespace WeBoozin.Data
                     AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 19,
+                    ProductName = "Pine Forest",
+                    Description = "Feel the freshness of pine forest with this beer.",
+                    Image = "/Photos/Beer1.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 8.5,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 20,
+                    ProductName = "Alpine Breeze",
+                    Description = "Feel the breeze of Alps with this beer.",
+                    Image = "/Photos/Beer2.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 6.5,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 21,
+                    ProductName = "Fine Brothers",
+                    Description = "Crafted with love and dedication by the Fine Brothers.",
+                    Image = "/Photos/Beer3.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 7,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 22,
+                    ProductName = "Golden Wheat",
+                    Description = "Brewed from the best golden wheat.",
+                    Image = "/Photos/Beer4.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 5.5,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 23,
+                    ProductName = "Bearish",
+                    Description = "Fine dark beer for the bear in you.",
+                    Image = "/Photos/Beer5.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 7.5,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 24,
+                    ProductName = "Quality Time",
+                    Description = "Brewed to be enjoyed with friends.",
+                    Image = "/Photos/Beer6.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 6,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 25,
+                    ProductName = "BBQ Master",
+                    Description = "Essential beer for every BBQ master.",
+                    Image = "/Photos/Beer7.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 8.7,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 26,
+                    ProductName = "Bavarian",
+                    Description = "Brewed in the traditional Bavarian style.",
+                    Image = "/Photos/Beer8.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 6.8,
+                    QuantityInStock = 50,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 27,
+                    ProductName = "Czech Pride",
+                    Description = "Finest Dark beer from the Czech Republic.",
+                    Image = "/Photos/Beer9.webp",
+                    QuantityInMl = 500,
+                    AlcoholContent = 7.7,
+                    QuantityInStock = 50,
+                    CategoryId = 3
                 }
 
                );
