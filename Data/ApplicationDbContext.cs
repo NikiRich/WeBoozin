@@ -42,6 +42,7 @@ namespace WeBoozin.Data
                     Description = "Feel the purity of your soul through this wonder drink",
                     Image = "/Photos/Vodka1.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
@@ -52,6 +53,7 @@ namespace WeBoozin.Data
                     Description = "Feel the fire in your heart with this vodka designed to lit your soul.",
                     Image = "/Photos/Vodka2.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
@@ -62,6 +64,7 @@ namespace WeBoozin.Data
                     Description = "Feel the lightness in your soul with every sip of this vodka.",
                     Image = "/Photos/Vodka3.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
@@ -72,16 +75,18 @@ namespace WeBoozin.Data
                     Description = "Feel the freedom of your mind through after the first sip of this vodka.",
                     Image = "/Photos/Vodka4.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
                 new Product
                 {
                     ProductId = 5,
-                    ProductName= "Victorious",
+                    ProductName = "Victorious",
                     Description = "Feel the victory in your veins with this vodka.",
                     Image = "/Photos/Vodka5.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
@@ -92,6 +97,7 @@ namespace WeBoozin.Data
                     Description = "Feel the strength in your veins with this vodka.",
                     Image = "/Photos/Vodka6.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
@@ -102,6 +108,7 @@ namespace WeBoozin.Data
                     Description = "Feel the glory like a Russian with this vodka.",
                     Image = "/Photos/Vodka7.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
@@ -112,6 +119,7 @@ namespace WeBoozin.Data
                     Description = "Become an alpha of your pac after the first sip of this vodka.",
                     Image = "/Photos/Vodka8.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
                 },
@@ -122,9 +130,110 @@ namespace WeBoozin.Data
                     Description = "Become an elite with this vodka.",
                     Image = "/Photos/Vodka9.webp",
                     QuantityInMl = 750,
+                    AlcoholContent = 40,
                     QuantityInStock = 50,
                     CategoryId = 1
+                },
+                new Product
+                {
+                    ProductId = 10,
+                    ProductName = "Latino Fire",
+                    Description = "Live through the fire of Latino culture.",
+                    Image = "/Photos/Tequila1.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 45,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 11,
+                    ProductName = "Mexican Pride",
+                    Description = "Feel the pride of Mexico with this tequila.",
+                    Image = "/Photos/Tequila2.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 37,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 12,
+                    ProductName = "Fiesta",
+                    Description = "Experience the Mexican fiesta at your home.",
+                    Image = "/Photos/Tequila3.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 13,
+                    ProductName = "Los Bandidos",
+                    Description = "From the people. For the people. Live it.",
+                    Image = "/Photos/Tequila4.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 42,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 14,
+                    ProductName = "Blood Money",
+                    Description = "Show you have got what it takes to earn it.",
+                    Image = "/Photos/Tequila5.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 45,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 15,
+                    ProductName = "Dia de Muertos",
+                    Description = "Celebrate the day of the dead with this tequila.",
+                    Image = "/Photos/Tequila6.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 45,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 16,
+                    ProductName = "El Patron",
+                    Description = "Feel like a boss of the table with this tequila.",
+                    Image = "/Photos/Tequila7.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 38,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 17,
+                    ProductName = "Mexican Night",
+                    Description = "Live through the Mexican night with this tequila.",
+                    Image = "/Photos/Tequila8.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    ProductId = 18,
+                    ProductName = "Mexican Sunrise",
+                    Description = "Meet and greet the Mexican sunrise with this tequila.",
+                    Image = "/Photos/Tequila9.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 2
                 }
+
                );
 
             // User to Orders
