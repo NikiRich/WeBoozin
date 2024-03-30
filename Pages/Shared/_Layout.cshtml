@@ -23,7 +23,7 @@
                         <a asp-area="" asp-page="/AboutUs">About Us</a>
                     </li>
                     <li class="nav-item ms-5">
-                        <form method="post" action="/Logout" id="logoutForm" style="display:none;">
+                        <form method="post" action="/UserLogic/Logout" id="logoutForm" style="display:none;">
                             @Html.AntiForgeryToken()
                         </form>
                         <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();" class="nav-link text-black">Logout</a>
@@ -38,10 +38,10 @@
                         <a asp-area="" asp-page="/AboutUs">About Us</a>
                     </li>
                     <li class="nav-item ms-5">
-                        <a asp-area="" asp-page="/Register">Register</a>
+                        <a asp-area="" asp-page="/UserLogic/Register">Register</a>
                     </li>
                     <li class="nav-item ms-5">
-                        <a asp-area="" asp-page="/Login">Login</a>
+                        <a asp-area="" asp-page="/UserLogic/Login">Login</a>
                     </li>
                 }
             </ul>
