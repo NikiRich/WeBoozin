@@ -29,10 +29,10 @@ namespace WeBoozin.Data
                 new Category { CategoryId = 3, CategoryName = "Beer", CategoryImage = "/Photos/Beer.webp" },
                 new Category { CategoryId = 4, CategoryName = "Whiskey", CategoryImage = "/Photos/Whiskey.webp" },
                 new Category { CategoryId = 5, CategoryName = "Gin", CategoryImage = "/Photos/Gin.webp" },
-                new Category { CategoryId = 6, CategoryName = "Rum", CategoryImage = "/Photos/Rum3.webp" },
+                new Category { CategoryId = 6, CategoryName = "Rum", CategoryImage = "/Photos/Rum.webp" },
                 new Category { CategoryId = 7, CategoryName = "Liquor", CategoryImage = "/Photos/Liquor.webp" },
-                new Category { CategoryId = 8, CategoryName = "Wine", CategoryImage = "/Photos/Wine2.webp" },
-                new Category { CategoryId = 9, CategoryName = "Champagne", CategoryImage = "/Photos/Champagne2.webp" }
+                new Category { CategoryId = 8, CategoryName = "Wine", CategoryImage = "/Photos/Wine.webp" },
+                new Category { CategoryId = 9, CategoryName = "Champagne", CategoryImage = "/Photos/Champagne.webp" }
             );
             modelBuilder.Entity<Product>().HasData(
                 new Product
@@ -331,6 +331,600 @@ namespace WeBoozin.Data
                     AlcoholContent = 7.7,
                     QuantityInStock = 50,
                     CategoryId = 3
+                },
+                new Product
+                {
+                    ProductId = 28,
+                    ProductName = "Gentleman's Choice",
+                    Description = "The choice of every gentleman.",
+                    Image = "/Photos/Whiskey1.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 29,
+                    ProductName = "Dark Wolf",
+                    Description = "Free the wolf inside you with this fine whiskey.",
+                    Image = "/Photos/Whiskey2.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 45,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 30,
+                    ProductName = "Irish Pride",
+                    Description = "Feel the pride of Ireland with this whiskey.",
+                    Image = "/Photos/Whiskey3.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 31,
+                    ProductName = "United Together",
+                    Description = "Crafted to unite the world.",
+                    Image = "/Photos/Whiskey4.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 38,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 32,
+                    ProductName = "Infinity",
+                    Description = "Dive into the infinity with this whiskey.",
+                    Image = "/Photos/Whiskey5.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 33,
+                    ProductName = "Golden Age of Whiskey",
+                    Description = "Symbolizes the good old times through its unique taste.",
+                    Image = "/Photos/Whiskey6.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 42,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 34,
+                    ProductName = "Royal Choice",
+                    Description = "The choice of every royal family.",
+                    Image = "/Photos/Whiskey7.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 43,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 35,
+                    ProductName = "Dark Night",
+                    Description = "Crafted to be enjoyed in the dark night.",
+                    Image = "/Photos/Whiskey8.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 36,
+                    ProductName = "Shooter's",
+                    Description = "Become the shooter you always wanted to be.",
+                    Image = "/Photos/Whiskey9.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 38,
+                    QuantityInStock = 50,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    ProductId = 37,
+                    ProductName = "Morning Dew",
+                    Description = "Feel the freshness of morning dew with this gin.",
+                    Image = "/Photos/Gin1.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 38,
+                    ProductName = "Sunset on the Beach",
+                    Description = "Feel the atmosphere of sunset on the beach with this gin.",
+                    Image = "/Photos/Gin2.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 35,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 39,
+                    ProductName = "Ice Bath",
+                    Description = "Feel the chill of ice bath with this gin.",
+                    Image = "/Photos/Gin3.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 43,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 40,
+                    ProductName = "Alligator",
+                    Description = "For adventurous souls only.",
+                    Image = "/Photos/Gin4.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 41,
+                    ProductName = "Serenity",
+                    Description = "Brings calmness and tranquility to your soul.",
+                    Image = "/Photos/Gin5.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 38,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 42,
+                    ProductName = "Fury",
+                    Description = "Adrenaline rush in a bottle.",
+                    Image = "/Photos/Gin6.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 45,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 43,
+                    ProductName = "Britih Punch",
+                    Description = "Feel the British punch with this gin.",
+                    Image = "/Photos/Gin7.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 44,
+                    ProductName = "Texas Heat",
+                    Description = "Feel the heat of Texas with this gin.",
+                    Image = "/Photos/Gin8.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 45,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 45,
+                    ProductName = "Nature Calls",
+                    Description = "Answer the call of nature and live peacefully with your inner self.",
+                    Image = "/Photos/Gin9.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    ProductId = 46,
+                    ProductName = "Pirate's Choice",
+                    Description = "The choice of every pirate.",
+                    Image = "/Photos/Rum1.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 47,
+                    ProductName = "Sea Storm",
+                    Description = "Feel ocean's power with every sip.",
+                    Image = "/Photos/Rum2.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 42,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 48,
+                    ProductName = "Caribbean Night",
+                    Description = "Feel the tranquility of Caribbean night with this rum.",
+                    Image = "/Photos/Rum3.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 38,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 49,
+                    ProductName = "Partygoer",
+                    Description = "For true partygoers only.",
+                    Image = "/Photos/Rum4.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 50,
+                    ProductName = "Stellar",
+                    Description = "Taste from a different galaxy.",
+                    Image = "/Photos/Rum5.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 38,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 51,
+                    ProductName = "Eclipse",
+                    Description = "Feel the mesmerizing beauty of an eclipse with this rum.",
+                    Image = "/Photos/Rum6.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 52,
+                    ProductName = "Voyager",
+                    Description = "For real explorers of the world.",
+                    Image = "/Photos/Rum7.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 42,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 53,
+                    ProductName = "Dreamer",
+                    Description = "Become a dreamer with the first sip of this rum.",
+                    Image = "/Photos/Rum8.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 40,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 54,
+                    ProductName = "Sunny Way",
+                    Description = "Feel the warmth and vitality with every sip.",
+                    Image = "/Photos/Rum9.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 38,
+                    QuantityInStock = 50,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    ProductId = 55,
+                    ProductName = "Oriental Night",
+                    Description = "Live and enjoy through the Oriental night with this liquor.",
+                    Image = "/Photos/Liquor1.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 35,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 56,
+                    ProductName = "Dancing Star",
+                    Description = "Become the dancing star of the night with this liquor.",
+                    Image = "/Photos/Liquor2.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 33,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 57,
+                    ProductName = "Sweet Fruit",
+                    Description = "Taste the sophisticated sweetness of fruits.",
+                    Image = "/Photos/Liquor3.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 30,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 58,
+                    ProductName = "Passion",
+                    Description = "Ignite the spark of passion inside you.",
+                    Image = "/Photos/Liquor4.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 35,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 59,
+                    ProductName = "Garden Bloom",
+                    Description = "Taste like a garden in full bloom.",
+                    Image = "/Photos/Liquor5.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 33,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 60,
+                    ProductName = "Albino",
+                    Description = "White as snow. Pure as a soul.",
+                    Image = "/Photos/Liquor6.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 33,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 61,
+                    ProductName = "Extravaganza",
+                    Description = "For an extravagant soul ready to dive into the unknown.",
+                    Image = "/Photos/Liquor7.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 35,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 62,
+                    ProductName = "Night Sky",
+                    Description = "The taste is as beautiful as the night sky.",
+                    Image = "/Photos/Liquor8.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 34,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 63,
+                    ProductName = "Champ's",
+                    Description = "Tje choice of every champion.",
+                    Image = "/Photos/Liquor9.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 35,
+                    QuantityInStock = 50,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    ProductId = 64,
+                    ProductName = "Trinity",
+                    Description = "Sophistication and unity.",
+                    Image = "/Photos/Wine1.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 65,
+                    ProductName = "Elegant Romance",
+                    Description = "Feel the elegance and romance in every sip.",
+                    Image = "/Photos/Wine2.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12.5,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 66,
+                    ProductName = "Red Temptation",
+                    Description = "You won't be able to resist this wine.",
+                    Image = "/Photos/Wine3.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 13.3,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 67,
+                    ProductName = "White Energy",
+                    Description = "Overflowing with energy and freshness.",
+                    Image = "/Photos/Wine4.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 11.5,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 68,
+                    ProductName = "Queen's Throne",
+                    Description = "Premium wine for the queen in you.",
+                    Image = "/Photos/Wine5.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12.8,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 69,
+                    ProductName = "Red Crown",
+                    Description = "Feel the royalty with every bottle.",
+                    Image = "/Photos/Wine6.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 13,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 70,
+                    ProductName = "White Rose",
+                    Description = "Purity and excellence in every glass",
+                    Image = "/Photos/Wine7.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 11.9,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 71,
+                    ProductName = "Gold Rose",
+                    Description = "Rare and precious like gold.",
+                    Image = "/Photos/Wine8.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12.5,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 72,
+                    ProductName = "Cozy Night",
+                    Description = "Let's you crete the atmosphere to share with your loved ones.",
+                    Image = "/Photos/Wine9.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12.3,
+                    QuantityInStock = 50,
+                    CategoryId = 8
+                },
+                new Product
+                {
+                    ProductId = 73,
+                    ProductName = "Royal Club",
+                    Description = "The choice of every royal family.",
+                    Image = "/Photos/Champagne1.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12.5,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 74,
+                    ProductName = "Rich",
+                    Description = "Feel the rich taste of this champagne.",
+                    Image = "/Photos/Champagne2.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12.6,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 75,
+                    ProductName = "Russian Nobility",
+                    Description = "Feel yourself like a Russian noble with this champagne.",
+                    Image = "/Photos/Champagne3.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 76,
+                    ProductName = "Dynasty",
+                    Description = "Stong and powerful like a dynasty.",
+                    Image = "/Photos/Champagne4.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 13.8,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 77,
+                    ProductName = "Desire",
+                    Description = "Invoke the desire for something you deserve.",
+                    Image = "/Photos/Champagne5.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 12.5,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 78,
+                    ProductName = "Rare Glory",
+                    Description = "Rare and glorious like a diamond.",
+                    Image = "/Photos/Champagne6.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 14,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 79,
+                    ProductName = "Apennini",
+                    Description = "Fine Italian champagne for the connoisseurs.",
+                    Image = "/Photos/Champagne7.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 13.7,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 80,
+                    ProductName = "Guilty Pleasure",
+                    Description = "The pleasure you won't be able to resist.",
+                    Image = "/Photos/Champagne8.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 14.5,
+                    QuantityInStock = 50,
+                    CategoryId = 9
+                },
+                new Product
+                {
+                    ProductId = 81,
+                    ProductName = "Last Romance",
+                    Description = "Makes you enjoy every sip like it was your last romance",
+                    Image = "/Photos/Champagne9.webp",
+                    QuantityInMl = 750,
+                    AlcoholContent = 13.4,
+                    QuantityInStock = 50,
+                    CategoryId = 9
                 }
 
                );
