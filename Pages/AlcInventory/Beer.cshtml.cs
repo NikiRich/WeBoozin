@@ -24,7 +24,7 @@ namespace WeBoozin.Pages.AlcInventory
                 QuantityInMl = p.QuantityInMl,
                 QuantityInStock = p.QuantityInStock,
                 Image = p.Image,
-                AlcoholContent = Math.Round(p.AlcoholContent, 3),
+                AlcoholContent = Math.Round(p.AlcoholContent, 2),
             }).ToListAsync();
         }
     }
