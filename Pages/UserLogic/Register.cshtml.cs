@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Cryptography;
+using System.Text;
 using WeBoozin.Data;
 using WeBoozin.Models;
 
@@ -30,7 +32,7 @@ namespace WeBoozin.Pages.UserLogic
             var user = new User
             {
                 Username = NewUser.Username,
-                Password = NewUser.Password,
+                Password = PasswowordHash(NewUser.Password),
                 Email = NewUser.Email,
                 Telephone = NewUser.Telephone,
                 Address = NewUser.Address,
@@ -42,6 +44,15 @@ namespace WeBoozin.Pages.UserLogic
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return RedirectToPage("/Categories");
+        }
+
+        private string PasswowordHash(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
         }
     }
 }
