@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using WeBoozin.Data;
 using WeBoozin.Models;
 
@@ -36,6 +38,7 @@ namespace WeBoozin.Pages.UserLogic
             {
                 return Page();
             }
+            Password = PasswowordHash(Password);
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == Email && u.Password == Password);
 
             if (user == null)
@@ -60,6 +63,14 @@ namespace WeBoozin.Pages.UserLogic
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
             return RedirectToPage("/Categories");
+        }
+        private string PasswowordHash(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
         }
     }
 }
