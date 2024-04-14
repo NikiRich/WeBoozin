@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WeBoozin.Models;
 using WeBoozin.Data;
 using Microsoft.EntityFrameworkCore;
+using static WeBoozin.Models.Order;
 
 namespace WeBoozin.Pages
 {
@@ -84,10 +85,46 @@ namespace WeBoozin.Pages
             return RedirectToPage();
         }
 
-
         private int GetUserId()
         {
             return _context.Users.FirstOrDefault(u => u.Username == User.Identity.Name)?.UserId ?? 0;
+        }
+
+        public async Task<IActionResult> OnPostOrderAsync()
+        {
+            var userId = GetUserId();
+
+            var cart = await _context.Cart
+                                     .Include(c => c.CartItems)
+                                         .ThenInclude(ci => ci.Product)
+                                     .FirstOrDefaultAsync(c => c.UserId == userId);
+
+            var order = new Order
+            {
+                UserId = userId,
+                Status = OrderStatus.Processing, 
+                OrderDetails = new List<OrderDetails>()
+            };
+
+            foreach (var item in cart.CartItems)
+            {
+                order.OrderDetails.Add(new OrderDetails
+                {
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity
+                });
+
+                item.Product.QuantityInStock -= item.Quantity;
+            }
+
+            _context.Orders.Add(order);
+            _context.CartItems.RemoveRange(cart.CartItems);
+
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Order placed successfully.";
+
+            return RedirectToPage("/Categories"); 
         }
     }
 }
