@@ -1,0 +1,82 @@
+﻿@page
+@model WeBoozin.Pages.UserLogic.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2 class="text-center">Welcome, @User.Identity.Name!</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<div class="row ms-2">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="form-group text-center">
+                <label>Name</label>
+                <input asp-for="UserUpdate.Name" class="form-control" />
+            </div>
+            <div class="form-group text-center">
+                <label>Surname</label>
+                <input asp-for="UserUpdate.Surname" class="form-control" />
+            </div>
+            <div class="form-group text-center">
+                <label>Telephone</label>
+                <input asp-for="UserUpdate.Telephone" class="form-control" />
+            </div>
+            <div class="form-group text-center">
+                <label>Address</label>
+                <input asp-for="UserUpdate.Address" class="form-control" />
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 text-center">
+                    <label>New Password (optional)</label>
+                    <input type="password" class="form-control" name="NewPassword" />
+                </div>
+                <div class="form-group col-md-6 text-center">
+                    <label>Confirm New Password</label>
+                    <input type="password" class="form-control" name="ConfirmNewPassword" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary text-center mt-2">Update Profile</button>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <h3 class="text-center">My Orders</h3>
+        @if (Model.Orders != null && Model.Orders.Any())
+        {
+            <div class="list-group">
+                @foreach (var order in Model.Orders)
+                {
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Order #@(order.OrderId)</h5>
+                            <small>Status: @(order.Status)</small>
+                        </div>
+                        <p class="mb-1">
+                            Items Ordered:
+                            @foreach (var item in order.OrderItems)
+                            {
+                                if (item == order.OrderItems.Last())
+                                {
+                                    <span>@item.Quantity @item.CategoryName x @item.ProductName</span>
+                                }
+                                else
+                                {
+                                    <span>@item.Quantity @item.CategoryName x @item.ProductName,</span>
+                                }
+                            }
+                        </p>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <p>No orders to display.</p>
+        }
+    </div>
+</div>
