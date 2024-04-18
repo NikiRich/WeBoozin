@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace WeBoozin.Models
 {
     public class Tracker
@@ -7,16 +9,13 @@ namespace WeBoozin.Models
         [Key]
         public int TrackerId { get; set; }
 
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public string Username { get; set; } 
 
-        [ForeignKey("Product")]
-        public int ProductId { get; set; }
-        public virtual Product Product { get; set; }
+        public string ProductName { get; set; } 
 
         public int Quantity { get; set; }
-        public DateTime Date { get; set; }
 
+        [Required]
+        public DateTime Date { get; set; }
     }
 }

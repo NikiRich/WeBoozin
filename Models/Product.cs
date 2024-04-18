@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace WeBoozin.Models
 {
@@ -19,6 +20,6 @@ namespace WeBoozin.Models
 
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
         public virtual ICollection<CartItem> CartItems { get; set; }
-        public virtual ICollection<Tracker> Tracker { get; set; }
+        //public virtual ICollection<Tracker> Tracker { get; set; }
     }
 }
