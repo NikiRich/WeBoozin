@@ -64,7 +64,7 @@ namespace WeBoozin.Pages.Alcohol_Inventory
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToPage("/Cart");
+            return RedirectToPage("/UserLogic/Cart");
         }
 
         private int GetUserId()
