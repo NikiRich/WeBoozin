@@ -5,7 +5,7 @@ namespace WeBoozin.Models
     public class NewUser
     {
         [Required(ErrorMessage = "Name is required.")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Name cannot be more than 35 characters.")]
+        [StringLength(35, MinimumLength = 1, ErrorMessage = "Name cannot be more than 35 characters.")]
         [Display(Name = "Your name.")]
         [RegularExpression(@"^[A-Z][a-z]*$", ErrorMessage = "Name must start from upper case and contain only letters.")]
         public string Name { get; set; }
@@ -34,10 +34,11 @@ namespace WeBoozin.Models
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         [StringLength(35, MinimumLength = 8, ErrorMessage = "Password must be between 8 and 35 characters.")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,35}$", ErrorMessage = "Password must contain at least one uppercase letter, " +
-        "one lowercase letter, one number, and one special character.")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._])[A-Za-z\d@$!%*?&\._]{8,35}$", ErrorMessage = "Password must contain at least one uppercase letter, " +
+        "one lowercase letter, one number, and one special character (including . and _ ).")]
         [Display(Name = "Your password.")]
         public string Password { get; set; }
+
 
         [Required(ErrorMessage = "Confirm password is required.")]
         [DataType(DataType.Password)]
@@ -49,7 +50,7 @@ namespace WeBoozin.Models
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Your telephone number.")]
         [RegularExpression(@"^\+?(\d{1,3})?[-. ]?\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,9}$", ErrorMessage = "The number can start with + and optionally contain the country code " +
-            "and a separator, and then the main part of the number")]
+            "followed by groups of up to four digits separated by spaces, hyphens, or periods.")]
         public string Telephone { get; set; }
 
         [Required(ErrorMessage = "Address is required.")]

@@ -21,7 +21,7 @@ namespace WeBoozin.Models
         {
             Processing,
             Sent,
-            Delivered
+            Delivered,
         }
     }
 }

@@ -17,7 +17,5 @@ namespace WeBoozin.Models
 
         public virtual ICollection<Order> Orders { get; set; }
         public virtual Cart Cart { get; set; }
-        //public virtual ICollection<Tracker> Tracker { get; set; }
-
     }
 }
