@@ -1,0 +1,96 @@
+﻿@page
+@model WeBoozin.Pages.UserLogic.Admin.OrderManagementModel
+@{
+    ViewData["Title"] = "Order Management";
+}
+<div class="ms-2">
+    <h1 class="text-center">Order Management</h1>
+    <form method="get">
+        <div class="row justify-content-center">
+            <div class="form-group col-sm-2">
+                <label for="status">Select Status:</label>
+                <select asp-for="SelectedStatus" asp-items="@Model.StatusOptions" class="form-control">
+                    <option value="">All Statuses</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-2">
+                <label for="category">Select Category:</label>
+                <select asp-for="SelectedCategoryId" asp-items="@Model.CategoryOptions" class="form-control">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-2 align-self-end">
+                <button type="submit" class="btn btn-primary">Filter</button>
+                <button type="reset" class="btn btn-danger" onclick="window.location.href='@Url.Page("OrderManagement")'">Clear</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="ms-2">
+    <div class="col-sm-12 mt-2">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>Order ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Items (Product - Quantity - Category)</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @if (Model.Orders.Any())
+                {
+                    foreach (var order in Model.Orders)
+                    {
+                        <tr>
+                            <td>@order.OrderId</td>
+                            <td>@order.Email</td>
+                            <td>@order.Name</td>
+                            <td>@order.Surname</td>
+                            <td>
+                                @if (order.OrderItems != null)
+                                {
+                                    @foreach (var item in order.OrderItems)
+                                    {
+                                        <p>@item.ProductName - @item.Quantity - @item.CategoryName</p>
+                                    }
+                                } 
+                                else
+                                {
+                                    <p>No items found.</p>
+                                }
+                            </td>
+                            <td>@order.Address</td>
+                            <td>@order.Telephone</td>
+                            <td>@order.Status</td>
+                            <td>
+                                <form method="post" class="d-flex justify-content-around align-items-center">
+                                    <input type="hidden" name="orderId" value="@order.OrderId" />
+                                    <select name="newStatus" class="form-control me-2">
+                                        <option value="Processing">Processing</option>
+                                        <option value="Sent">Sent</option>
+                                        <option value="Delivered">Delivered</option>
+                                    </select>
+                                    <button type="submit" formaction="@(Url.Page("/UserLogic/Admin/OrderManagement", "UpdateStatus"))" class="btn btn-primary me-2">Update</button>
+                                    <button type="submit" formaction="@(Url.Page("/UserLogic/Admin/OrderManagement", "CancelOrder"))" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this order?');">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">No orders found with the selected filters.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
