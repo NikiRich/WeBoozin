@@ -1,0 +1,22 @@
+﻿@page
+@model WeBoozin.Pages.UserLogic.AdminPanelModel
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+<link rel="stylesheet" href="~/css/Categories.css" />
+
+<div>
+    <h1 class="text-center">Welcome, @User.Identity.Name !</h1>
+    <div class="row">
+        <div class="col hover">
+            <img src="~/Photos/AlcMng.webp" class="img-thumbnail" id="AlcMng" />
+        </div>
+        <div class="col hover">
+            <img src="~/Photos/OrderMng.webp" class="img-thumbnail" id="OrderMng" />
+        </div>
+        <div class="col hover">
+            <img src="~/Photos/UserMng.webp" class="img-thumbnail" id="UserMng" />
+        </div>
+    </div>
+</div>
+<script src="~/js/Admin.js"></script>
