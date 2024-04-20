@@ -50,7 +50,8 @@ namespace WeBoozin.Pages.UserLogic
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Name, user.Username)
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, user.Role),
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -62,7 +63,14 @@ namespace WeBoozin.Pages.UserLogic
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
-            return RedirectToPage("/Categories");
+            if (user.Role == "Admin")
+            {
+                return RedirectToPage("/UserLogic/Admin/AdminPanel");
+            }
+            else
+            {
+                return RedirectToPage("/Categories");
+            }
         }
         private string PasswowordHash(string password)
         {
