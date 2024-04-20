@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="~/WeBoozin.styles.css" asp-append-version="true" />
     <link href="/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/_Layout.css" />
+    <link rel="stylesheet" href="/css/Common.css" />
     <script src="/lib/bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 
@@ -16,34 +18,57 @@
             <ul class="nav">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li class="nav-item">
-                        <a asp-area="" asp-page="/Categories">Categories</a>
-                    </li>
-                    <li class="nav-item ms-5">
-                        <a asp-area="" asp-page="/AboutUs">About Us</a>
-                    </li>
-                    <li class="nav-item ms-5">
-                        <form method="post" action="/UserLogic/Logout" id="logoutForm" style="display:none;">
-                            @Html.AntiForgeryToken()
-                        </form>
-                        <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();" class="nav-link text-black">Logout</a>
-                    </li>
+                    if (User.HasClaim(ClaimTypes.Role, "Admin"))
+                    {
+                        <li class="nav-item ms-2">
+                            <a asp-area="" asp-page="/UserLogic/Admin/AdminPanel" class="nav-link text-black">Admin Panel</a>
+                        </li>
+                        <li class="nav-item ms-5">
+                            <form method="post" action="/UserLogic/Logout" id="logoutForm" style="display:none;">
+                                @Html.AntiForgeryToken()
+                            </form>
+                            <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();" class="nav-link text-black">Logout</a>
+                        </li>
+
+                    }
+                    else if (User.HasClaim(ClaimTypes.Role, "User"))
+                    {
+                        <li class="nav-item ms-5">
+                            <a asp-area="" asp-page="/Categories" class="nav-link text-black">Categories</a>
+                        </li>
+                        <li class="nav-item ms-5">
+                            <a asp-area="" asp-page="/AboutUs" class="nav-link text-black">About Us</a>
+                        </li>
+                        <li class="nav-item ms-5">
+                            <a asp-area="" asp-page="/UserLogic/Cart" class="nav-link text-black">Cart</a>
+                        </li>
+                        <li class="nav-item ms-5" class="nav-link text-black">
+                            <form method="post" action="/UserLogic/Logout" id="logoutForm" style="display:none;">
+                                @Html.AntiForgeryToken()
+                            </form>
+                            <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();" class="nav-link text-black">Logout</a>
+                        </li>
+                        <li class="nav-item ms-5">
+                            <a asp-area="" asp-page="/UserLogic/Profile" class="nav-link text-black">Profile</a>
+                        </li>
+                    }
                 }
                 else
                 {
                     <li class="nav-item ms-5">
-                        <a asp-area="" asp-page="/Categories">Categories</a>
+                        <a asp-area="" asp-page="/Categories" class="nav-link text-black">Categories</a>
                     </li>
                     <li class="nav-item ms-5">
-                        <a asp-area="" asp-page="/AboutUs">About Us</a>
+                        <a asp-area="" asp-page="/AboutUs" class="nav-link text-black">About Us</a>
                     </li>
                     <li class="nav-item ms-5">
-                        <a asp-area="" asp-page="/UserLogic/Register">Register</a>
+                        <a asp-area="" asp-page="/UserLogic/Register" class="nav-link text-black">Register</a>
                     </li>
                     <li class="nav-item ms-5">
-                        <a asp-area="" asp-page="/UserLogic/Login">Login</a>
+                        <a asp-area="" asp-page="/UserLogic/Login" class="nav-link text-black">Login</a>
                     </li>
                 }
+
             </ul>
         </nav>
     </header>
@@ -53,9 +78,7 @@
         </main>
     </div>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
