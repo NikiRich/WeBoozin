@@ -43,6 +43,11 @@ namespace WeBoozin.Pages.UserLogic
             };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+            if (HttpContext.User.IsInRole("Admin")) 
+            {
+                return RedirectToPage("/UserLogic/Admin/UserManagement");
+            }
+
             return RedirectToPage("/Categories");
         }
 
