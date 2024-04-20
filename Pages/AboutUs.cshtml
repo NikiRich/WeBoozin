@@ -1,6 +1,84 @@
 ﻿@page
 @model WeBoozin.Pages.AboutUsModel
 @{
+    ViewData["Title"] = "About Us";
 }
 
-<h1>About</h1>
+<section class="text-center">
+    <h2>Website Information</h2>
+    <p>This website is designed to provide a seamless shopping experience for various alcoholic beverages. We ensure security, reliability, and the latest selection of products.</p>
+</section>
+
+<section>
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th>Products</th>
+                <th>Orders</th>
+                <th>Delivery</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <td>Our alcoholic beverages span across 9 categories and include over 81 unique products. </br>
+                    We offer the finest selection of drinks.</td>
+                <td>Orders are processed within 24 hours.</td>
+                <td>Fast delivery and exceptional service.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+<div class="row">
+    <div class="col text-center">
+        <h3>Registered User</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cart Functionality</td>
+                    <td class="text-success fw-bold">Available</td>
+                </tr>
+                <tr>
+                    <td>Order Functionality</td>
+                    <td class ="text-success fw-bold">Available</td>
+                </tr>
+                <tr>
+                    <td>Profile Functionality</td>
+                    <td class="text-success fw-bold">Available</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col text-center">
+        <h3>Non-Registered User</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cart Functionality</td>
+                    <td class="text-danger fw-bold">Not Available</td>
+                </tr>
+                <tr>
+                    <td>Order Functionality</td>
+                    <td class="text-danger fw-bold">Not Available</td>
+                </tr>
+                <tr>
+                    <td>Profile Functionality</td>
+                    <td class="text-danger fw-bold">Not Available</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
