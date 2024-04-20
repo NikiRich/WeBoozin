@@ -1,0 +1,56 @@
+﻿@page
+@model CartModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+@if (Model.CartItems != null && Model.CartItems.Count == 0)
+{
+    <h2 class="text-center">The cart is empty</h2>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CartItems)
+                {
+                    <tr>
+                        <td>@item.Product.ProductName</td>
+                        <td>
+                            <form method="post" class="form-inline">
+                                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                <button type="submit" asp-page-handler="DecreaseQuantity" class="btn btn-secondary btn-sm">-</button>
+                                <div class="quantity-display" style="display: inline-block;">
+                                    <input type="text" readonly class="form-control-plaintext text-center " value="@item.Quantity"/>
+                                </div>
+                                <button type="submit" asp-page-handler="IncreaseQuantity" class="btn btn-secondary btn-sm">+</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                <button type="submit" class="btn btn-danger" asp-page-handler="Remove">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-6">
+            <form method="post" asp-page-handler="Order">
+                <button type="submit" class="btn btn-primary">Order</button>
+            </form>
+        </div>
+    </div>
+}
