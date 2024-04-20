@@ -61,8 +61,13 @@ namespace WeBoozin.Pages.UserLogic
 
         public async Task<IActionResult> OnPostAsync()
         {
+            ModelState.Remove("UserUpdate.NewPassword");
+            ModelState.Remove("UserUpdate.ConfirmPassword");
+
             if (!ModelState.IsValid)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                TempData["Error"] = string.Join(" ", errors);
                 return Page();
             }
 
@@ -106,6 +111,7 @@ namespace WeBoozin.Pages.UserLogic
             TempData["Message"] = "Profile updated successfully.";
             return RedirectToPage();
         }
+
 
 
         private string PasswordHash(string password)
