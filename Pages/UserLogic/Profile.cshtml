@@ -6,9 +6,9 @@
 
 <h2 class="text-center">Welcome, @User.Identity.Name!</h2>
 
-@if (TempData["Message"] != null)
+@if (TempData["CancelledOrder"] != null)
 {
-    <div class="alert alert-success">@TempData["Message"]</div>
+    <div class="alert alert-success">@TempData["CancelledOrder"]</div>
 }
 
 <div class="row ms-2">
