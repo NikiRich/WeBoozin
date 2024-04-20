@@ -21,7 +21,11 @@ var app = builder.Build();
 
 app.MapGet("/", page =>
 {
-    page.Response.Redirect("/Categories");
+    // Redirect to the categories page if the user is not admin otherwise to AdminPanel
+    if (page.User.Identity.IsAuthenticated && page.User.IsInRole("Admin"))
+        page.Response.Redirect("/UserLogic/Admin/AdminPanel");
+    else
+        page.Response.Redirect("/Categories");
     return Task.CompletedTask;
 } );
 
