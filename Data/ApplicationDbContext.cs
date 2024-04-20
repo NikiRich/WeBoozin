@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System.Collections.Generic;
 using System.Security.Policy;
 using WeBoozin.Models;
@@ -936,14 +937,6 @@ namespace WeBoozin.Data
                 .HasForeignKey(o => o.UserId)
                 .OnDelete(DeleteBehavior.Cascade); // Orders are deleted if User is deleted
 
-            // User to Trackers
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Tracker)
-                .WithOne(t => t.User)
-                .HasForeignKey(t => t.UserId)
-                .OnDelete(DeleteBehavior.Cascade); // Trackers are deleted if User is deleted
-
-            // User to Cart
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Cart)
                 .WithOne(c => c.User)
@@ -964,14 +957,6 @@ namespace WeBoozin.Data
                 .HasForeignKey(od => od.ProductId)
                 .OnDelete(DeleteBehavior.Cascade); // OrderDetails are deleted if Product is deleted
 
-            // Product to Trackers
-            modelBuilder.Entity<Product>()
-                .HasMany(p => p.Tracker)
-                .WithOne(t => t.Product)
-                .HasForeignKey(t => t.ProductId)
-                .OnDelete(DeleteBehavior.Restrict); // Prevent deletion of Product if the Product is being tracked
-
-            // Product to CartItems (handled via CartItems model)
             modelBuilder.Entity<CartItem>()
                 .HasOne(ci => ci.Product)
                 .WithMany(p => p.CartItems)
