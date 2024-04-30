@@ -43,5 +43,3 @@ Champagne.addEventListener("click", function () {
 Liquor.addEventListener("click", function () {
     window.location.href = "/AlcInventory/Liquor";
 })
-
-

@@ -13,9 +13,7 @@ namespace WeBoozin.Models
         public virtual User User { get; set; }
 
         public OrderStatus Status { get; set; }
-
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
-
 
         public enum OrderStatus
         {

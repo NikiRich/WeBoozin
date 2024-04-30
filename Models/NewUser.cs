@@ -46,6 +46,7 @@ namespace WeBoozin.Models
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ConfirmPassword { get; set; }
 
+
         [Required(ErrorMessage = "Telephone is required.")]
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Your telephone number.")]
@@ -53,12 +54,14 @@ namespace WeBoozin.Models
             "followed by groups of up to four digits separated by spaces, hyphens, or periods.")]
         public string Telephone { get; set; }
 
+
         [Required(ErrorMessage = "Address is required.")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Address must be between 5 and 50 characters.")]
         [Display(Name = "Your address.")]
         [RegularExpression(@"^[A-Z][a-zA-Z0-9\s,.'-]{5,50}$", ErrorMessage = "Address must start from upper case and contain only letters, numbers, and special characters" +
             "and be from 5 to 50 characters long.")]
         public string Address { get; set; }
+
 
         [Required(ErrorMessage = "Age is required.")]
         [Range(18, 100, ErrorMessage = "You must be at least 18 years old.")]
