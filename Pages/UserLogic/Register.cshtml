@@ -5,6 +5,11 @@
     ViewData["Title"] = "Register";
 }
 
+@if (TempData["Invalid"] != null)
+{
+    <div class="alert alert-danger text-center">@TempData["Invalid"]</div>
+}
+
 <div class="container mt-2">
     <div class="row justify-content-center">
         <div class="col-md-6">
