@@ -28,6 +28,13 @@ namespace WeBoozin.Pages.UserLogic
             {
                 return Page();
             }
+            bool userExists = _context.Users.Any(u => u.Username == NewUser.Username || u.Email == NewUser.Email);
+            if (userExists)
+            {
+                TempData["Invalid"] = "A user with this username or email already exists.";
+                return Page();
+            }
+
             bool isFirstUser = !_context.Users.Any();
             var user = new User
             {
