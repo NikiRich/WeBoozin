@@ -117,8 +117,6 @@ namespace WeBoozin.Pages.UserLogic
 
             await _context.SaveChangesAsync();
 
-            TempData["Success"] = "Order placed successfully.";
-
             return RedirectToPage("/Categories");
         }
     }
